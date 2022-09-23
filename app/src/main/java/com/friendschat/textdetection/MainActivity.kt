@@ -1,11 +1,34 @@
 package com.friendschat.textdetection
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import com.friendschat.textdetection.common.BaseActivity
+import com.friendschat.textdetection.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    private var binding: ActivityMainBinding? = null
+    private var navController: NavController? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater, null, false)
+        setContentView(binding?.root)
+        binding?.apply {
+            setSupportActionBar(toolbar)
+        }
+        setNavigation()
+    }
+
+    private fun setNavigation() {
+        val navHostFramgnet =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFramgnet.findNavController()
+        navController?.let { setupActionBarWithNavController(it) }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController?.navigateUp() == true || super.onSupportNavigateUp()
     }
 }
