@@ -72,6 +72,11 @@ dependencies {
     //navigation graph
     implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
 
+    //coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version"
+
     //camera
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation("androidx.camera:camera-core:${camerax_version}")
@@ -81,4 +86,7 @@ dependencies {
     implementation("androidx.camera:camera-view:${camerax_version}")
     // If you want to additionally use the CameraX Extensions library
     implementation("androidx.camera:camera-extensions:${camerax_version}")
+
+    //text recognition
+    implementation "com.google.android.gms:play-services-mlkit-text-recognition:$text_recognition"
 }

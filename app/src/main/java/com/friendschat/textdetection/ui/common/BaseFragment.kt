@@ -4,11 +4,30 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.provider.Settings
+import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.friendschat.textdetection.ui.extension.collectLifeCycleFlow
+import com.friendschat.textdetection.ui.navigation.NavigationCommand
 
-abstract class BaseFragment(layoutId: Int): Fragment(layoutId) {
+abstract class BaseFragment(layoutId: Int) : Fragment(layoutId) {
     protected abstract val viewModel: BaseViewModel
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observeNavigation()
+    }
+
+    private fun observeNavigation() {
+        collectLifeCycleFlow(viewModel.navigationFlow) {
+            when (it) {
+                is NavigationCommand.Back -> findNavController().navigateUp()
+                is NavigationCommand.To -> findNavController().navigate(it.direction)
+            }
+        }
+    }
 
     protected fun showDialog() {
         AlertDialog.Builder(requireContext())

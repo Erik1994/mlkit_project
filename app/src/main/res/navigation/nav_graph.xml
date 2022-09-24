@@ -7,9 +7,17 @@
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.friendschat.textdetection.ui.features.camera.CameraFragment"
-        android:label="Camera" />
+        android:label="Camera">
+        <action
+            android:id="@+id/action_cameraFragment_to_textFramgnet"
+            app:destination="@id/textFramgnet" />
+    </fragment>
     <fragment
         android:id="@+id/textFramgnet"
         android:name="com.friendschat.textdetection.ui.features.text.TextFramgnet"
-        android:label="Text" />
+        android:label="Text">
+        <argument
+            android:name="texts"
+            app:argType="string[]" />
+    </fragment>
 </navigation>
