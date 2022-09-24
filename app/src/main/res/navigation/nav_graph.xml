@@ -6,10 +6,10 @@
 
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.friendschat.textdetection.features.camera.CameraFragment"
+        android:name="com.friendschat.textdetection.ui.features.camera.CameraFragment"
         android:label="Camera" />
     <fragment
         android:id="@+id/textFramgnet"
-        android:name="com.friendschat.textdetection.features.text.TextFramgnet"
+        android:name="com.friendschat.textdetection.ui.features.text.TextFramgnet"
         android:label="Text" />
 </navigation>

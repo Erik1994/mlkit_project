@@ -5,7 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.friendschat.textdetection.common.BaseActivity
+import com.friendschat.textdetection.ui.common.BaseActivity
 import com.friendschat.textdetection.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {

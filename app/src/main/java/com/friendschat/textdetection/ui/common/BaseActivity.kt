@@ -1,4 +1,4 @@
-package com.friendschat.textdetection.common
+package com.friendschat.textdetection.ui.common
 
 import androidx.appcompat.app.AppCompatActivity
 
