@@ -45,15 +45,16 @@ class ImageTextAnalyer(private val appDispatchers: AppDispatchers) : ImageAnalys
                     if (text.isNotEmpty()) {
                         resultset.add(text)
                     }
-//                    line.elements.forEach{
-//
-//                    }
                 }
             }
         }
     }
 
     fun onClear() {
-        resultset.clear()
+        scope.launch {
+            withContext(singelPoolDispatcher) {
+                resultset.clear()
+            }
+        }
     }
 }

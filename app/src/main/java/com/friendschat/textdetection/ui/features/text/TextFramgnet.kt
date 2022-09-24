@@ -30,7 +30,7 @@ class TextFramgnet: BaseFragment(R.layout.fragment_text) {
         super.onViewCreated(view, savedInstanceState)
         val teaxtArray = args.texts.toList().distinct()
         val result = teaxtArray.joinToString(
-            separator = "\n"
+            separator = " "
         )
         binding?.text?.text = result
     }
